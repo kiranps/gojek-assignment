@@ -45,8 +45,9 @@ function App() {
   };
 
   const handleSearch = values => {
+    const keywords = values.join(" ");
     fetchGifs(keywords);
-    setKeyWords(values.join(" "));
+    setKeyWords(keywords);
   };
 
   return (

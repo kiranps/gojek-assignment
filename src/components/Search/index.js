@@ -1,5 +1,17 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import styles from "./styles.module.css";
+import * as R from "ramda";
+
+const Close = ({ onClick }) => (
+  <svg
+    className={styles.close}
+    fill="#adadad"
+    viewBox="0 0 24 24"
+    onClick={onClick}
+  >
+    <path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
+  </svg>
+);
 
 const Search = ({ onChange }) => {
   const inputDiv = useRef(null);
@@ -23,15 +35,29 @@ const Search = ({ onChange }) => {
     }
   };
 
+  const handleSubmit = () => {
+    const newTags = [...tags, value];
+    setTags(newTags);
+    setValue("");
+    onChange(newTags);
+  };
+
+  const handleClose = index => {
+    const newTags = R.remove(index, 1, tags);
+    setTags(newTags);
+    onChange(newTags);
+  };
+
   const width = inputDiv.current
     ? inputDiv.current.offsetWidth + 10 + "px"
     : "10px";
 
   return (
-    <div className={styles.search}>
+    <div className={styles.search} onClick={_ => inputRef.current.focus()}>
       {tags.map((x, i) => (
         <div key={i} className={styles.keyword}>
-          {x}
+          <div className={styles.label}>{x}</div>
+          <Close onClick={_ => handleClose(i)} />
         </div>
       ))}
       <div ref={inputDiv} className={styles.hidden}>
@@ -44,6 +70,9 @@ const Search = ({ onChange }) => {
         onChange={handleChange}
         style={{ width }}
       />
+      <button className={styles.button} onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 };

@@ -2,7 +2,7 @@
   height: 40px;
   background-color: #efefef;
   border-radius: 8px;
-  padding: 0 10px;
+  padding-left: 10px;
   width: 500px;
 }
 
@@ -31,4 +31,30 @@
   font-size: 14px;
   background-color: #ffffff;
   border: 1px solid #e8e8e8;
+}
+
+.close {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.label {
+  display: inline-block;
+  padding-right: 4px;
+}
+
+.button {
+  float: right;
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+  border: none;
+  border-left: 1px solid#d8d8d8;
+  padding: 0 20px;
+  cursor: pointer;
+  color: grey;
+  outline: none;
+  background-color: #efefef;
 }
