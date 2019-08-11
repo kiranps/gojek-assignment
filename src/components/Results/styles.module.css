@@ -9,3 +9,19 @@
   overflow-y: scroll;
   padding: 10px 40px;
 }
+
+.results_dark {
+  background-color: #1a1a1a;
+}
+
+.results::-webkit-scrollbar {
+  width: 5px;
+}
+
+.results::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.results::-webkit-scrollbar-thumb {
+  background: #666;
+}

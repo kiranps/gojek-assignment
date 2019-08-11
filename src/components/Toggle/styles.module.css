@@ -1,0 +1,15 @@
+.toggle {
+  display: inline-block;
+}
+
+.label {
+  display: inline-block;
+  vertical-align: top;
+  padding: 12px 5px 0 10px;
+  font-size: 14px;
+  color: #9e9e9e;
+}
+
+.icon {
+  display: inline-block;
+}

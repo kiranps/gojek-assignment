@@ -14,7 +14,7 @@ const search = (query, offset = 0) => {
         id: x.id,
         title: x.title,
         still: x.images.downsized_still,
-        gif: x.images.downsized
+        gif: x.images.preview_webp
       }))
     );
 };

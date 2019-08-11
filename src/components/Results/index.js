@@ -1,4 +1,5 @@
 import React from "react";
+import { ThemeConsumer } from "context/ThemeContext";
 import styles from "./styles.module.css";
 
 const Results = ({ children, onScrollEnd }) => {
@@ -9,9 +10,21 @@ const Results = ({ children, onScrollEnd }) => {
   };
 
   return (
-    <div className={styles.results} onScroll={handleScroll}>
-      {children}
-    </div>
+    <ThemeConsumer>
+      {theme => (
+        <div
+          className={
+            "scroll " +
+            styles.results +
+            " " +
+            (theme === "dark" ? styles.results_dark : "")
+          }
+          onScroll={handleScroll}
+        >
+          {children}
+        </div>
+      )}
+    </ThemeConsumer>
   );
 };
 

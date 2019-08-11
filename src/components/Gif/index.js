@@ -4,7 +4,6 @@ import styles from "./styles.module.css";
 const Layout = ({ image }) => {
   const [isLoaded, setStatus] = useState(false);
   const [hover, setHover] = useState(false);
-  const [play, togglePlay] = useState(false);
 
   return (
     <div className={styles.imgbox}>

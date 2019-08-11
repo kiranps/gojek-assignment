@@ -4,8 +4,10 @@ import Search from "components/Search";
 import Results from "components/Results";
 import Column from "components/Column";
 import Gif from "components/Gif";
+import Toggle from "components/Toggle";
 import { useGifs } from "services/gify";
 import * as R from "ramda";
+import { ThemeProvider } from "context/ThemeContext";
 
 const totalHeight = R.reduce((acc, x) => acc + Number(x.still.height), 0);
 
@@ -32,6 +34,7 @@ function App() {
   const [images, setImages] = useState([[], [], [], []]);
   const [keywords, setKeyWords] = useState();
   const [gifs, fetchGifs] = useGifs();
+  const [theme, changeTheme] = useState("light");
 
   useEffect(() => {
     setImages(balanceColumns(gifs, images));
@@ -49,9 +52,10 @@ function App() {
   };
 
   return (
-    <div>
+    <ThemeProvider value={theme}>
       <NavBar>
         <Search onChange={handleSearch} />
+        <Toggle onChange={value => changeTheme(value ? "dark" : "light")} />
       </NavBar>
       <Results onScrollEnd={handleScrollEnd}>
         {images.map((x, i) => (
@@ -62,7 +66,7 @@ function App() {
           </Column>
         ))}
       </Results>
-    </div>
+    </ThemeProvider>
   );
 }
 
