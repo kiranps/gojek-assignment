@@ -1,0 +1,8 @@
+.nav {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 56px;
+  border-bottom: 1px solid #edf2f7;
+  padding: 8px;
+}
