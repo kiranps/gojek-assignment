@@ -7,7 +7,7 @@ import Gif from "components/Gif";
 import { useGifs } from "services/gify";
 import * as R from "ramda";
 
-const totalHeight = R.reduce((acc, x) => acc + Number(x.image.height), 0);
+const totalHeight = R.reduce((acc, x) => acc + Number(x.still.height), 0);
 
 const reduceIndex = R.addIndex(R.reduce);
 
@@ -57,7 +57,7 @@ function App() {
         {images.map((x, i) => (
           <Column key={i}>
             {x.map((x, i) => (
-              <Gif key={i} image={x.image} />
+              <Gif key={i} image={x} />
             ))}
           </Column>
         ))}

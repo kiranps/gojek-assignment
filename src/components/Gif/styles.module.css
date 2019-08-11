@@ -7,6 +7,7 @@
 .imgbox {
   padding: 5px;
   height: auto;
+  position: relative;
 }
 
 .placeholder {
@@ -15,4 +16,16 @@
   width: 100%;
   content: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
   background-color: #efefef;
+}
+
+.hover {
+  position: absolute;
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  background-color: transparent;
+  /* background-color: rgba(0, 0, 0, 0.22);
+  cursor: pointer; */
 }

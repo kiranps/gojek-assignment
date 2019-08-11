@@ -13,7 +13,8 @@ const search = (query, offset = 0) => {
       data.map(x => ({
         id: x.id,
         title: x.title,
-        image: x.images.downsized_still
+        still: x.images.downsized_still,
+        gif: x.images.downsized
       }))
     );
 };
