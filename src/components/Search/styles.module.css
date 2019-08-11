@@ -1,0 +1,33 @@
+.search {
+  height: 40px;
+  background-color: #efefef;
+  border-radius: 8px;
+  padding: 0 10px;
+  width: 500px;
+}
+
+.input {
+  border: none;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  margin-left: 5px;
+}
+
+.hidden {
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  white-space: nowrap;
+}
+
+.keyword {
+  display: inline-block;
+  height: 20px;
+  padding: 0px 2px 0 3px;
+  margin: 5px 0 0 5px;
+  border-radius: 2px;
+  background-color: #f3f3f3;
+  border: 1px solid #e8e8e8;
+}
