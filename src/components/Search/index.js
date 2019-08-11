@@ -78,4 +78,8 @@ const Search = ({ onChange }) => {
   );
 };
 
+Search.defaultProps = {
+  onChange: _ => {}
+};
+
 export default Search;
