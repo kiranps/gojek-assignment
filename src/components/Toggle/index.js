@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 
-const Toggle = ({ value, onChange }) => {
+const Toggle = ({ value, label, onChange }) => {
   const [active, toggle] = useState(value);
 
   const handleToggle = () => {
@@ -11,7 +11,7 @@ const Toggle = ({ value, onChange }) => {
 
   return (
     <div className={styles.toggle}>
-      <div className={styles.label}>Dark</div>
+      <div className={styles.label}>{label}</div>
       <svg
         className={styles.icon}
         style={{ width: "42px", height: "42px", cursor: "pointer" }}
@@ -20,7 +20,7 @@ const Toggle = ({ value, onChange }) => {
       >
         {active ? (
           <path
-            fill="#4CAF50"
+            fill="#4caf50"
             d="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M17,15A3,3 0 0,1 14,12A3,3 0 0,1 17,9A3,3 0 0,1 20,12A3,3 0 0,1 17,15Z"
           />
         ) : (
@@ -35,7 +35,9 @@ const Toggle = ({ value, onChange }) => {
 };
 
 Toggle.defaultProps = {
-  active: false
+  active: false,
+  label: "",
+  onChange: _ => {}
 };
 
 export default Toggle;

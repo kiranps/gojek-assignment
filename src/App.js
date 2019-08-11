@@ -55,7 +55,10 @@ function App() {
     <ThemeProvider value={theme}>
       <NavBar>
         <Search onChange={handleSearch} />
-        <Toggle onChange={value => changeTheme(value ? "dark" : "light")} />
+        <Toggle
+          label="Dark"
+          onChange={value => changeTheme(value ? "dark" : "light")}
+        />
       </NavBar>
       <Results onScrollEnd={handleScrollEnd}>
         {images.map((x, i) => (
