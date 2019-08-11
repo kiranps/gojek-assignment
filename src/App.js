@@ -33,8 +33,6 @@ function App() {
   const [keywords, setKeyWords] = useState();
   const [gifs, fetchGifs] = useGifs();
 
-  console.log(gifs);
-
   useEffect(() => {
     setImages(balanceColumns(gifs, images));
   }, [gifs]);
@@ -59,7 +57,7 @@ function App() {
         {images.map((x, i) => (
           <Column key={i}>
             {x.map((x, i) => (
-              <Gif key={i} src={x.image.url} />
+              <Gif key={i} image={x.image} />
             ))}
           </Column>
         ))}

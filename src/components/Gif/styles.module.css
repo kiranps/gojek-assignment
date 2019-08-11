@@ -8,3 +8,11 @@
   padding: 5px;
   height: auto;
 }
+
+.placeholder {
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+  content: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
+  background-color: #efefef;
+}

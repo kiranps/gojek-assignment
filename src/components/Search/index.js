@@ -49,8 +49,8 @@ const Search = ({ onChange }) => {
   };
 
   const width = inputDiv.current
-    ? inputDiv.current.offsetWidth + 10 + "px"
-    : "10px";
+    ? inputDiv.current.offsetWidth + 50 + "px"
+    : "50px";
 
   return (
     <div className={styles.search} onClick={_ => inputRef.current.focus()}>
@@ -69,6 +69,7 @@ const Search = ({ onChange }) => {
         className={styles.input}
         onChange={handleChange}
         style={{ width }}
+        placeholder="Search"
       />
       <button className={styles.button} onClick={handleSubmit}>
         Submit

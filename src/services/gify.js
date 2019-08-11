@@ -27,6 +27,7 @@ export const useGifs = () => {
     if (str !== query.current) {
       query.current = str;
       offset.current = 0;
+      setGifs([]);
     }
 
     search(query.current, offset.current).then(data => {
