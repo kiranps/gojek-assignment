@@ -1,6 +1,7 @@
 .img {
   border-radius: 12px;
   display: block;
+  width: 100%;
 }
 
 .imgbox {

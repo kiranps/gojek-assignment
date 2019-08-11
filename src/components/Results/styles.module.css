@@ -1,0 +1,11 @@
+.results {
+  display: flex;
+  position: fixed;
+  flex-wrap: wrap;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+  padding: 10px 40px;
+}
