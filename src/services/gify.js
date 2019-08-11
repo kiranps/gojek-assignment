@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 const DOMAIN = "https://api.giphy.com/";
 const KEY = "upRAglSKfcxmYqFMCWGOlS1SXoxnyLIF";
 
@@ -20,12 +20,18 @@ const search = (query, offset = 0) => {
 
 export const useGifs = () => {
   const [gifs, setGifs] = useState([]);
-  const [offset, setOffset] = useState(0);
+  const query = useRef(0);
+  const offset = useRef(0);
 
-  const fetchGifs = query => {
-    search(query, offset).then(data => {
+  const fetchGifs = str => {
+    if (str !== query.current) {
+      query.current = str;
+      offset.current = 0;
+    }
+
+    search(query.current, offset.current).then(data => {
       setGifs(images => [...images, ...data]);
-      setOffset(offset => offset + 1);
+      offset.current++;
     });
   };
 

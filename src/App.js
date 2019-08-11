@@ -30,25 +30,29 @@ const balanceColumns = (data, store) => {
 
 function App() {
   const [images, setImages] = useState([[], [], [], []]);
+  const [keywords, setKeyWords] = useState();
   const [gifs, fetchGifs] = useGifs();
 
-  useEffect(() => {
-    fetchGifs("hello");
-  }, []);
+  console.log(gifs);
 
   useEffect(() => {
     setImages(balanceColumns(gifs, images));
   }, [gifs]);
 
   const handleScrollEnd = () => {
-    fetchGifs("hello");
+    fetchGifs(keywords);
     console.log("end reached");
+  };
+
+  const handleSearch = values => {
+    fetchGifs(keywords);
+    setKeyWords(values.join(" "));
   };
 
   return (
     <div>
       <NavBar>
-        <Search />
+        <Search onChange={handleSearch} />
       </NavBar>
       <Results onScrollEnd={handleScrollEnd}>
         {images.map((x, i) => (
