@@ -4,7 +4,7 @@ import Search from "components/Search";
 import Results from "components/Results";
 import Column from "components/Column";
 import Gif from "components/Gif";
-import { search } from "services/gify";
+import { useGifs } from "services/gify";
 import * as R from "ramda";
 
 const totalHeight = R.reduce((acc, x) => acc + Number(x.image.height), 0);
@@ -29,21 +29,29 @@ const balanceColumns = (data, store) => {
 };
 
 function App() {
-  const [gifs, setGifs] = useState([[], [], [], []]);
+  const [images, setImages] = useState([[], [], [], []]);
+  const [gifs, fetchGifs] = useGifs();
 
   useEffect(() => {
-    search("hello").then(data => {
-      setGifs(balanceColumns(data, gifs));
-    });
+    fetchGifs("hello");
   }, []);
+
+  useEffect(() => {
+    setImages(balanceColumns(gifs, images));
+  }, [gifs]);
+
+  const handleScrollEnd = () => {
+    fetchGifs("hello");
+    console.log("end reached");
+  };
 
   return (
     <div>
       <NavBar>
         <Search />
       </NavBar>
-      <Results>
-        {gifs.map((x, i) => (
+      <Results onScrollEnd={handleScrollEnd}>
+        {images.map((x, i) => (
           <Column key={i}>
             {x.map((x, i) => (
               <Gif key={i} src={x.image.url} />
