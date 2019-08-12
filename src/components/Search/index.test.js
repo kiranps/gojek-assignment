@@ -40,6 +40,7 @@ describe("<Search />", () => {
     const input = wrapper.find("input");
     input.instance().value = "hello ";
     input.simulate("change");
+    expect(callback).toHaveBeenLastCalledWith(["hello"]);
     input.instance().value = "world ";
     input.simulate("change");
     input.instance().value = "gif";

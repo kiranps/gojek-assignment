@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 
-const Layout = ({ image }) => {
+const Gif = ({ image }) => {
   const [isLoaded, setStatus] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -36,4 +36,4 @@ const Layout = ({ image }) => {
   );
 };
 
-export default Layout;
+export default Gif;
