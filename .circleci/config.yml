@@ -60,7 +60,7 @@ workflows:
       - prepare
       - build:
           requires:
-            - prepae
+            - prepare
       - test:
           requires:
             - build
