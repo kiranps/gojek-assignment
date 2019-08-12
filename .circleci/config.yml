@@ -32,6 +32,9 @@ jobs:
       - run:
           name: build react app
           command: yarn build
+          environment:
+            REACT_APP_API_URL: "https://api.giphy.com/"
+            REACT_APP_GIPHY_TOKEN: "upRAglSKfcxmYqFMCWGOlS1SXoxnyLIF"
       - persist_to_workspace:
           root: .
           paths:
