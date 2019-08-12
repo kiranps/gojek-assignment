@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./styles.module.css";
 import { ThemeConsumer } from "context/ThemeContext";
 import * as R from "ramda";
