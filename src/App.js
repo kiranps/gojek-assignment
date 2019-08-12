@@ -5,7 +5,7 @@ import Results from "components/Results";
 import Column from "components/Column";
 import Gif from "components/Gif";
 import Toggle from "components/Toggle";
-import { useGifs } from "services/gify";
+import useGifs from "hooks/useGif";
 import * as R from "ramda";
 import { ThemeProvider } from "context/ThemeContext";
 
