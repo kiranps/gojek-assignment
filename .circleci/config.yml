@@ -32,7 +32,7 @@ jobs:
       - run:
           name: build react app
           command: |
-            REACT_APP_API_URL=$REACT_APP_API_URL REACT_APP_GIPHY_TOKEN=$REACT_APP_GIPHY_TOKEN yarn build
+            REACT_APP_API_URL="$REACT_APP_API_URL" REACT_APP_GIPHY_TOKEN="$REACT_APP_GIPHY_TOKEN" yarn build
       - persist_to_workspace:
           root: .
           paths:
