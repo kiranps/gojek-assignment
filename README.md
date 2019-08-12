@@ -6,17 +6,6 @@ Signup and create a new app to get a beta API Key
 
 Read the docs https://developers.giphy.com/docs/
 
-#### Configure ENVIRONMENT VARIABLE
-
-create `.env.development.local` file for development and `.env.production.local` file for taking build, in project directory and configure enviroment variables as below
-
-```env
-REACT_APP_API_URL=https://api.giphy.com/
-REACT_APP_GIPHY_TOKEN=upRAglSKfcxmYqFMCWGOlS1SXoxnyLIF
-```
-
-execute the below commands after configuring `.env.development.local` file as above
-
 ```sh
 yarn install # install dependecies
 yarn start # start developement server
@@ -53,8 +42,6 @@ google-chrome coverage/lcov-report/index.html
 
 ### Build App
 
-execute the below commands after configuring `.env.production.local`
-
 ```sh
 yarn build
 ```
@@ -79,7 +66,7 @@ Create account in CircleCI https://circleci.com/
 
 Add repo from github/gitlab etc and allow permission to access the codebase
 
-Add `ZEIT_TOKEN`, `REACT_APP_API_URL`, `REACT_APP_GIPHY_TOKEN` to enviroment variables in the project settings
+Add `ZEIT_TOKEN` to enviroment variables in the project settings
 
 For every push in to the repository github will trigger CIRCLE CI hook which will start the CI
 

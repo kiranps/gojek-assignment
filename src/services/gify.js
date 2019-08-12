@@ -1,5 +1,7 @@
-const DOMAIN = process.env.REACT_APP_API_URL;
-const GIPHY_TOKEN = process.env.REACT_APP_GIPHY_TOKEN;
+// const DOMAIN = process.env.REACT_APP_API_URL;
+// const GIPHY_TOKEN = process.env.REACT_APP_GIPHY_TOKEN;
+const DOMAIN = "https://api.giphy.com/";
+const GIPHY_TOKEN = "upRAglSKfcxmYqFMCWGOlS1SXoxnyLIF";
 
 export const search = (query, offset = 0) => {
   const ENDPOINT = "v1/gifs/search";
