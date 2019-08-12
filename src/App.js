@@ -6,6 +6,7 @@ import Column from "components/Column";
 import Gif from "components/Gif";
 import Toggle from "components/Toggle";
 import useGifs from "hooks/useGif";
+import useResponsive from "hooks/useResponsive";
 import * as R from "ramda";
 import { ThemeProvider } from "context/ThemeContext";
 
@@ -30,15 +31,20 @@ const balanceColumns = (data, store) => {
   }, store);
 };
 
+const gridColumns = x =>
+  x === "mobile" ? [[]] : x === "tablet" ? [[], []] : [[], [], [], []];
+
 function App() {
-  const [images, setImages] = useState([[], [], [], []]);
+  const { device } = useResponsive();
+  const [images, setImages] = useState(gridColumns(device));
   const [keywords, setKeyWords] = useState();
   const [gifs, fetchGifs] = useGifs();
   const [theme, changeTheme] = useState("light");
 
   useEffect(() => {
-    setImages(images => balanceColumns(gifs, images));
-  }, [gifs]);
+    const initData = gridColumns(device);
+    setImages(images => balanceColumns(gifs, initData));
+  }, [gifs, device]);
 
   const handleScrollEnd = () => {
     fetchGifs(keywords);
