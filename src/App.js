@@ -37,7 +37,7 @@ function App() {
   const [theme, changeTheme] = useState("light");
 
   useEffect(() => {
-    setImages(balanceColumns(gifs, images));
+    setImages(images => balanceColumns(gifs, images));
   }, [gifs]);
 
   const handleScrollEnd = () => {

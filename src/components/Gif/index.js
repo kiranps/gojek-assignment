@@ -9,6 +9,7 @@ const Layout = ({ image }) => {
     <div className={styles.imgbox}>
       {!isLoaded && (
         <img
+          alt={image.id}
           height={image.still.height}
           width={image.still.width}
           className={styles.placeholder}
@@ -17,11 +18,13 @@ const Layout = ({ image }) => {
       {hover ? (
         <img
           className={styles.img}
+          alt={image.id}
           src={image.gif.url}
           onMouseOut={_ => setHover(false)}
         />
       ) : (
         <img
+          alt={image.id}
           style={{ display: isLoaded ? "block" : "none" }}
           className={styles.img}
           src={image.still.url}

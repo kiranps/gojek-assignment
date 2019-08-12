@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 const DOMAIN = "https://api.giphy.com/";
 const KEY = "upRAglSKfcxmYqFMCWGOlS1SXoxnyLIF";
 
