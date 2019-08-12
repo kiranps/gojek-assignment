@@ -1,6 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import styles from "./styles.module.css";
+import { ThemeConsumer } from "context/ThemeContext";
 import * as R from "ramda";
+
+const setTheme = (theme, style) => (theme === "dark" ? " " + style : "");
 
 const Close = ({ onClick }) => (
   <svg
@@ -18,10 +21,6 @@ const Search = ({ onChange }) => {
   const inputRef = useRef(null);
   const [value, setValue] = useState("");
   const [tags, setTags] = useState([]);
-
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
 
   const handleChange = e => {
     const text = e.target.value;
@@ -53,28 +52,41 @@ const Search = ({ onChange }) => {
     : "50px";
 
   return (
-    <div className={styles.search} onClick={_ => inputRef.current.focus()}>
-      {tags.map((x, i) => (
-        <div key={i} className={styles.keyword}>
-          <div className={styles.label}>{x}</div>
-          <Close onClick={_ => handleClose(i)} />
+    <ThemeConsumer>
+      {theme => (
+        <div
+          className={styles.search + setTheme(theme, styles.search_dark)}
+          onClick={_ => inputRef.current.focus()}
+        >
+          {tags.map((x, i) => (
+            <div
+              key={i}
+              className={styles.keyword + setTheme(theme, styles.keyword_dark)}
+            >
+              <div className={styles.label}>{x}</div>
+              <Close onClick={_ => handleClose(i)} />
+            </div>
+          ))}
+          <div ref={inputDiv} className={styles.hidden}>
+            {value}
+          </div>
+          <input
+            value={value}
+            ref={inputRef}
+            className={styles.input + setTheme(theme, styles.input_dark)}
+            onChange={handleChange}
+            style={{ width }}
+            placeholder="Search"
+          />
+          <button
+            className={styles.button + setTheme(theme, styles.button_dark)}
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
         </div>
-      ))}
-      <div ref={inputDiv} className={styles.hidden}>
-        {value}
-      </div>
-      <input
-        value={value}
-        ref={inputRef}
-        className={styles.input}
-        onChange={handleChange}
-        style={{ width }}
-        placeholder="Search"
-      />
-      <button className={styles.button} onClick={handleSubmit}>
-        Submit
-      </button>
-    </div>
+      )}
+    </ThemeConsumer>
   );
 };
 
