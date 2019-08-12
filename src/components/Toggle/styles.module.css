@@ -1,5 +1,6 @@
 .toggle {
   display: inline-block;
+  min-width: 87px;
 }
 
 .label {
@@ -11,5 +12,6 @@
 }
 
 .icon {
+  vertical-align: top;
   display: inline-block;
 }
