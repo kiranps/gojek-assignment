@@ -30,12 +30,13 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Setup Environment Variables
+          command: |
+            echo "export REACT_APP_API_URL=$REACT_APP_API_URL" >> $BASH_ENV
+            echo "export REACT_APP_GIPHY_TOKEN=$REACT_APP_GIPHY_TOKEN" >> $BASH_ENV
+      - run:
           name: build react app
           command: yarn build
-          environment:
-            REACT_APP_API_URL: ${REACT_APP_API_URL}
-            REACT_APP_GIPHY_TOKEN: ${REACT_APP_GIPHY_TOKEN}
-
       - persist_to_workspace:
           root: .
           paths:
