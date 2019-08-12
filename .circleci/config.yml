@@ -11,7 +11,9 @@ jobs:
       - checkout
       - restore_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn install
+      - run:
+          name: install dependencies
+          command: yarn install
       - save_cache:
           paths:
             - node_modules
@@ -27,7 +29,13 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: yarn build
+      - run:
+          name: build react app
+          command: yarn build
+          environment:
+            REACT_APP_API_URL: $REACT_APP_API_URL
+            REACT_APP_GIPHY_TOKEN: $REACT_APP_GIPHY_TOKEN
+
       - persist_to_workspace:
           root: .
           paths:

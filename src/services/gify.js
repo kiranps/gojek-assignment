@@ -1,9 +1,9 @@
-const DOMAIN = "https://api.giphy.com/";
-const KEY = "upRAglSKfcxmYqFMCWGOlS1SXoxnyLIF";
+const DOMAIN = process.env.REACT_APP_API_URL;
+const GIPHY_TOKEN = process.env.REACT_APP_GIPHY_TOKEN;
 
 export const search = (query, offset = 0) => {
   const ENDPOINT = "v1/gifs/search";
-  const QUERY_PARAMS = `?api_key=${KEY}&q=${query}&limit=25&offset=${offset}&rating=G&lang=en`;
+  const QUERY_PARAMS = `?api_key=${GIPHY_TOKEN}&q=${query}&limit=25&offset=${offset}&rating=G&lang=en`;
 
   return fetch(DOMAIN + ENDPOINT + QUERY_PARAMS)
     .then(response => response.json())
