@@ -27,14 +27,14 @@ describe("<Gif />", () => {
     expect(wrapper.exists()).toBeTruthy();
   });
 
-  it("on mouse over image should toggle still image to gif", () => {
+  it("on click image should toggle still image to gif", () => {
     const wrapper = mount(<Gif image={data} />);
     const image1 = wrapper.find("img").at(1);
     expect(image1.props().src).toEqual(data.still.url);
-    image1.simulate("mouseover");
+    image1.simulate("click");
     const image2 = wrapper.find("img").at(1);
     expect(image2.props().src).toEqual(data.gif.url);
-    image2.simulate("mouseout");
+    image2.simulate("click");
     const image3 = wrapper.find("img").at(1);
     expect(image3.props().src).toEqual(data.still.url);
   });

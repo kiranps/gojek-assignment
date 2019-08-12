@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 const Gif = ({ image }) => {
   const [isLoaded, setStatus] = useState(false);
-  const [hover, setHover] = useState(false);
+  const [play, setPlay] = useState(false);
 
   return (
     <div className={styles.imgbox}>
@@ -15,21 +15,21 @@ const Gif = ({ image }) => {
           className={styles.placeholder}
         />
       )}
-      {hover ? (
+      {play ? (
         <img
           className={styles.img}
           alt={image.id}
           src={image.gif.url}
-          onMouseOut={_ => setHover(false)}
+          onClick={_ => setPlay(false)}
         />
       ) : (
         <img
           alt={image.id}
-          style={{ display: isLoaded ? "block" : "none" }}
+          style={{ visibility: isLoaded ? "visible" : "hidden" }}
           className={styles.img}
           src={image.still.url}
           onLoad={_ => setStatus(true)}
-          onMouseOver={_ => setHover(true)}
+          onClick={_ => setPlay(true)}
         />
       )}
     </div>
