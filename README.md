@@ -37,6 +37,20 @@ yarn test
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### Coverage Reporting
+
+```sh
+yarn coverage
+```
+
+Will generate coverage report in `coverage` directory in project root
+
+opent coverage report in browser
+
+```
+google-chrome coverage/lcov-report/index.html
+```
+
 ### Build App
 
 execute the below commands after configuring `.env.production.local`
@@ -57,7 +71,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Create account in zeit https://zeit.co/login
 
-Generate `TOKEN` for Continuous Deployment service
+Generate `ZEIT_TOKEN` for Continuous Deployment service
 
 ### Continuous Integration and Deployment
 
@@ -121,3 +135,7 @@ To learn Zeit, check out the [Zeit documentation](https://zeit.co/docs).
 | Prop  | Description                  | type   | Default     |
 | ----- | ---------------------------- | ------ | ----------- |
 | value | set context of ThemeProvider | string | light\|Dark |
+
+### Post commit Hooks
+
+Prettier (code formatting tool) is added as a post commit hook.It removes all original styling and ensures that all outputted code conforms to a consistent style

@@ -33,8 +33,8 @@ jobs:
           name: build react app
           command: yarn build
           environment:
-            REACT_APP_API_URL: $REACT_APP_API_URL
-            REACT_APP_GIPHY_TOKEN: $REACT_APP_GIPHY_TOKEN
+            REACT_APP_API_URL: ${REACT_APP_API_URL}
+            REACT_APP_GIPHY_TOKEN: ${REACT_APP_GIPHY_TOKEN}
 
       - persist_to_workspace:
           root: .
