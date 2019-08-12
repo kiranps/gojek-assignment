@@ -1,4 +1,21 @@
-## Setup Development Environment
+### Setup Development Environment
+
+Visit https://developers.giphy.com
+
+Signup and create a new app to get a beta API Key
+
+Read the docs https://developers.giphy.com/docs/
+
+#### Configure ENVIRONMENT VARIABLE
+
+create `.env.development.local` file for development and `.env.production.local` file for taking build, in project directory and configure enviroment variables as below
+
+```env
+REACT_APP_API_URL=https://api.giphy.com/
+REACT_APP_GIPHY_TOKEN=upRAglSKfcxmYqFMCWGOlS1SXoxnyLIF
+```
+
+execute the below commands after configuring `.env.development.local` file as above
 
 ```sh
 yarn install # install dependecies
@@ -22,7 +39,9 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Build App
 
-```
+execute the below commands after configuring `.env.production.local`
+
+```sh
 yarn build
 ```
 
@@ -38,17 +57,23 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Create account in zeit https://zeit.co/login
 
-Genrate token for Continuous Deployement service
+Generate `TOKEN` for Continuous Deployment service
 
-## Continuous Integration and Deployment
+### Continuous Integration and Deployment
 
 Create account in CircleCI https://circleci.com/
 
 Add repo from github/gitlab etc and allow permission to access the codebase
 
-Add ZEIT_TOKEN to enviroment variables in the project settings
+Add `ZEIT_TOKEN`, `REACT_APP_API_URL`, `REACT_APP_GIPHY_TOKEN` to enviroment variables in the project settings
 
-## Learn More
+For every push in to the repository github will trigger CIRCLE CI hook which will start the CI
+
+CI consist of maily 3 jobs `build` --> `test` --> `deploy`
+
+React app will be deployed to `zeit` and it will be served under domain specified by alias key in `now.json` file
+
+### Learn More
 
 To learn CircleCI, check out the [CircleCi documentation](https://circleci.com/docs).
 
