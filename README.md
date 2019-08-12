@@ -78,3 +78,46 @@ React app will be deployed to `zeit` and it will be served under domain specifie
 To learn CircleCI, check out the [CircleCi documentation](https://circleci.com/docs).
 
 To learn Zeit, check out the [Zeit documentation](https://zeit.co/docs).
+
+### React Components
+
+```jsx
+<Search onChange={handleChange} />
+```
+
+| Prop     | Description                                                     | type                    | Default |
+| -------- | --------------------------------------------------------------- | ----------------------- | ------- |
+| onChange | The callback function that is triggered when keywords are added | Function(array(string)) | []      |
+
+```jsx
+<Toggle onChange={handleToggle} />
+```
+
+| Prop     | Description                                             | type               | Default    |
+| -------- | ------------------------------------------------------- | ------------------ | ---------- |
+| value    | Specifies whether the toggle is selected                | boolean            | false      |
+| onChange | The callback function that is triggered icon is clicked | Function(boolean)) | Function() |
+
+```jsx
+<Results onScrollEnd={handleInfiniteScroll} />
+```
+
+| Prop       | Description                                                       | type       | Default    |
+| ---------- | ----------------------------------------------------------------- | ---------- | ---------- |
+| onScollEnd | The callback function that is triggered scroll bar reaches bottom | Function() | Function() |
+
+```jsx
+<Gif image={data} />
+```
+
+| Prop  | Description                                                    | type | Default |
+| ----- | -------------------------------------------------------------- | ---- | ------- |
+| image | data that contains still image, gif, height and width of image |      |         |
+
+```jsx
+<ThemeProvider value="light" />
+```
+
+| Prop  | Description                  | type   | Default     |
+| ----- | ---------------------------- | ------ | ----------- |
+| value | set context of ThemeProvider | string | light\|Dark |
